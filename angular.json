@@ -31,8 +31,9 @@
                 "output": "./svg"
               },
               {
-                "glob": "**/*",
-                "input": "src/_redirects"
+                "glob": "**/*._redirects",
+                "input": "src/_redirects",
+                "output": "./_redirects"
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],
