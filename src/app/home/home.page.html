@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchValue" (ionChange)="performSearch()" [(ngModel)]="query" placeholder="Buscar artista" ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="artists.length">
+    <ion-item *ngFor="let artist of artists" [routerLink]="['/results', artist.id]">
+      <ion-label>
+        <h2>{{artist.name}}</h2>
+        <p>{{artist.disambiguation}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list *ngIf="!artists.length > 0 && searchValue != ''">
+    <ion-item *ngFor="let artist of [1,2,3,4,5,6,7,8,9,10]">
+      <ion-label>
+        <h2><ion-skeleton-text animated></ion-skeleton-text></h2>
+        <p><ion-skeleton-text animated></ion-skeleton-text></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
